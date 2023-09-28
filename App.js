@@ -1,16 +1,16 @@
+import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
-import { Button, Platform, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { Homescreen } from './screens/Home-screen';
-import { useState } from 'react';
+import {NavigationContainer} from '@react-navigation/native'
+import { MyDrawer } from './navigation/drawer';
+
+
 
 export default function App() {
   
   return (
-    <SafeAreaView>
-         <Homescreen />
-    </SafeAreaView>
-  );
+          <NavigationContainer>
+              <MyDrawer />
+          </NavigationContainer>
+        );
 }
-
-
  
