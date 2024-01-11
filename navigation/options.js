@@ -16,7 +16,7 @@ export const navOptions = (nav) => {
             />
         ),
         headerRight: () => (
-            <Text style={{padding:5, fontSize:15, color:'white'}}>WrConcept</Text>
+            <Text style={{padding:5, fontSize:15, color:'white'}}>IOT READING</Text>
         )
     }
 }

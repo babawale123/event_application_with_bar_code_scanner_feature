@@ -4,7 +4,7 @@ import { EventItem } from './EventItem'
 
 export const EventList = ({data, onRefresh}) => {
     const renderItem = ({item}) => {
-        return <EventItem id={item.id} title={item.title} description={item.description} qr_code={item.qr_code} />
+        return <EventItem id={item.id} temperature_iot={item.temperature_iot} temp_mode_iot={item.temp_mode_iot} uss_iot={item.uss_iot} />
     }
     
   return (

@@ -29,21 +29,31 @@ export const HomeScreen = () => {
 
  const fetchData = async() => {
       try {
-        const {data} = await axios.get('https://mynewbarcode-4994a8b57609.herokuapp.com/api/events/',config)
+        const {data} = await axios.get('http://ramson.pythonanywhere.com/api/iot-readings/',config)
         setData(data)
         console.log(data)
       } catch (error) {
         console.log(error)
       }
  }
+ useEffect(() => {
+  fetchData(); // Initial fetch when the component mounts
+
+  const interval = setInterval(() => {
+    fetchData(); // Fetch data every 5 seconds
+  }, 5000);
+
+  return () => clearInterval(interval); // Clear the interval when component unmounts
+}, []);
 
  const handleRefresh = () => {
   console.log('refreshing....')
   setRefresh(prevState => !prevState)
  }
+
   return (
     <View  style={styles.screen}>
-        <Button title='add event' onPress={()=>navigation.navigate('New Event')} />
+       {/* <Button title='add event' onPress={()=>navigation.navigate('New Event')} />*/}
         <EventList data={data} onRefresh = {handleRefresh} />
     </View>
   )

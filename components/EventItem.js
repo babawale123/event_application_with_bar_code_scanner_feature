@@ -2,15 +2,16 @@ import React from 'react'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import {useNavigation} from '@react-navigation/native'
 
-export const EventItem = ({id,title,description, qr_code}) => {
+export const EventItem = ({id,temperature_iot,temp_mode_iot, uss_iot}) => {
     const navigation  = useNavigation()
   return (
-    <TouchableOpacity style={styles.card} onPress={()=>navigation.navigate('Events',{eventId:id, title,description})}>
+    <TouchableOpacity style={styles.card} onPress={()=>navigation.navigate('Events',{eventId:id, temperature_iot,temp_mode_iot,uss_iot})}>
       <View style={styles.card2}>
-        <Text>{title}</Text>
-        <Text>{description}</Text>
+        <Text style={{fontSize:20,color:"red", marginVertical:5}}> Temperature : {temperature_iot}</Text>
+        <Text style={{fontSize:20,color:"blue", marginVertical:5}}>Temp Mode : {temp_mode_iot}</Text>
+        <Text style={{fontSize:20, color:"green", marginVertical:5}}> Uss Mode : {uss_iot}</Text>
       </View>
-        <Image style={{width:100, height:100}} source={{uri:qr_code}} />
+        {/*<Image style={{width:100, height:100}} source={{uri:qr_code}} />*/}
     </TouchableOpacity>
   )
 }
